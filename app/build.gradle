@@ -1,0 +1,57 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 30
+    buildToolsVersion "28.0.3"
+    defaultConfig {
+        applicationId "com.btc.satoshi"
+        minSdkVersion 19
+        targetSdkVersion 30
+        versionCode 1001
+        versionName "4.1"
+
+    }
+    signingConfigs {
+        debug {
+            storeFile file("signature/cabe.keystore") // 需要修改成您的签名文件路径
+            keyAlias 'cabe'     // 需要修改成您的签名文件别名
+            storePassword '19871010'        // 需要修改成您的签名文件密码
+            keyPassword '19871010'          // 需要修改成您的签名文件别名密码
+        }
+        release {
+            storeFile file("signature/facesdk-library.keystore") // 需要修改成您的签名文件路径
+            storePassword 'android'        // 需要修改成您的签名文件密码
+            keyAlias 'androiddebugkey'     // 需要修改成您的签名文件别名
+            keyPassword 'android'          // 需要修改成您的签名文件别名密码
+        }
+    }
+    buildTypes {
+        debug {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.debug
+            debuggable true
+            jniDebuggable true
+        }
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+            debuggable false
+            jniDebuggable false
+        }
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        // Or, if you prefer, you can continue to check for errors in release builds,
+        // but continue the build even when errors are found:
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:recyclerview-v7:27.1.1'
+    implementation project(path: ':faceplatform-ui')
+}
