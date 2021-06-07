@@ -19,9 +19,21 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
     }
+
+    sourceSets {
+        main {
+            jniLibs.srcDir 'libs'
+        }
+    }
+    repositories {
+        flatDir {
+            dirs "libs"
+        }
+    }
 }
 
 dependencies {
     api fileTree(dir: 'libs', include: ['*.jar'])
-    api project(path: ':faceplatform-release')
+//    api project(path: ':faceplatform-release')
+    api 'com.github.crabfang:BD_FaceSDK_Lib:v1.0.0'
 }
