@@ -1,7 +1,4 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
-apply plugin: 'maven'
-group ='com.github.crabfang'
 
 android {
     compileSdkVersion 30
@@ -12,28 +9,11 @@ android {
         targetSdkVersion 30
         versionCode 1001
         versionName "4.1"
-    }
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    sourceSets {
-        main {
-            jniLibs.srcDir 'libs'
-        }
-    }
-    repositories {
-        flatDir {
-            dirs "libs"
-        }
+        consumerProguardFiles 'consumer-rules.pro'
     }
 }
 
 dependencies {
-    api fileTree(dir: 'libs', include: ['*.jar'])
 //    api project(path: ':faceplatform-release')
     api 'com.github.crabfang:BD_FaceSDK_Lib:v1.0.0'
 }
