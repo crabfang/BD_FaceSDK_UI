@@ -10,9 +10,15 @@ android {
         versionName "4.1"
         consumerProguardFiles 'consumer-rules.pro'
     }
+    repositories {
+        flatDir {
+            dirs "libs"
+        }
+    }
 }
 
 dependencies {
+    api fileTree(dir: 'libs', include: ['*.jar'])
 //    api project(path: ':faceplatform-release')
-    api 'com.github.crabfang:BD_FaceSDK_Lib:v1.0.3'
+//    api 'com.github.crabfang:BD_FaceSDK_Lib:v1.0.0'
 }
