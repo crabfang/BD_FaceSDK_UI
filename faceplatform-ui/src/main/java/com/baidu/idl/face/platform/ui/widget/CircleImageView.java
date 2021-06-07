@@ -18,8 +18,7 @@ import android.net.Uri;
 import android.util.AttributeSet;
 import android.widget.ImageView;
 
-import com.baidu.idl.face.platform.ui.R;
-
+import com.baidu.idl.face.platform.R;
 
 /**
  * Created by v_liujialu01 on 2018/12/3.

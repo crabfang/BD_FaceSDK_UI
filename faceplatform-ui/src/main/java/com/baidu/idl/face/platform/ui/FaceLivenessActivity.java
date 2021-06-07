@@ -39,6 +39,7 @@ import com.baidu.idl.face.platform.ILivenessStrategy;
 import com.baidu.idl.face.platform.ILivenessStrategyCallback;
 import com.baidu.idl.face.platform.ILivenessViewCallback;
 import com.baidu.idl.face.platform.LivenessTypeEnum;
+import com.baidu.idl.face.platform.R;
 import com.baidu.idl.face.platform.manager.TimeManager;
 import com.baidu.idl.face.platform.model.FaceExtInfo;
 import com.baidu.idl.face.platform.model.ImageInfo;
