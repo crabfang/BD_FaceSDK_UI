@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright (C) 2017 Baidu Inc. All rights reserved.
  */
 package com.baidu.idl.face.platform.ui;

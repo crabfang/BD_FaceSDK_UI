@@ -43,7 +43,6 @@ import com.baidu.idl.face.platform.R;
 import com.baidu.idl.face.platform.manager.TimeManager;
 import com.baidu.idl.face.platform.model.FaceExtInfo;
 import com.baidu.idl.face.platform.model.ImageInfo;
-import com.baidu.idl.face.platform.stat.Ast;
 import com.baidu.idl.face.platform.ui.utils.BrightnessUtils;
 import com.baidu.idl.face.platform.ui.utils.CameraUtils;
 import com.baidu.idl.face.platform.ui.utils.VolumeUtils;
@@ -312,6 +311,11 @@ public class FaceLivenessActivity extends Activity implements
             mSurfaceHolder.addCallback(this);
         }
 
+        if (mCamera != null) {
+            CameraUtils.releaseCamera(mCamera);
+            mCamera = null;
+        }
+
         if (mCamera == null) {
             try {
                 mCamera = open();
@@ -490,8 +494,6 @@ public class FaceLivenessActivity extends Activity implements
             mIsCompletion = true;
             // saveAllImage(base64ImageCropMap, base64ImageSrcMap);
         }
-        // 打点
-        Ast.getInstance().faceHit("liveness");
     }
 
     private void onRefreshView(FaceStatusNewEnum status, String message, int currentLivenessCount) {
