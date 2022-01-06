@@ -12,8 +12,6 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.baidu.idl.face.platform.R;
-
 import java.util.ArrayList;
 
 public class BaseActivity extends Activity {
